@@ -18,8 +18,7 @@ struct User {
 
 const DB_URL: &str = !env("DATABASE_URL");
 
-
-const OK_RESPONSE: &str = "HTTP/1.1 200 OK\r\n\Content-Type: application/json\r\n\r\n";
+const OK_RESPONSE: &str = "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n";
 const CREATED_RESPONSE: &str = "HTTP/1.1 201 Created\r\n\r\n";
 const NOT_FOUND_RESPONSE: &str = "HTTP/1.1 404 Not Found\r\n\r\n";
 const BAD_REQUEST_RESPONSE: &str = "HTTP/1.1 400 Bad Request\r\n\r\n";
@@ -143,6 +142,7 @@ fn handle_delete_request(request: &str) -> (String, String) {
         }
         _ => (INTERNAL_SERVER_ERROR_RESPONSE.to_string(),"Error".to_string())
     }
+}
 
 
 fn set_database() -> Result<(), PostgresError> {
