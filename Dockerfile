@@ -19,4 +19,4 @@ WORKDIR /usr/local/bin
 
 COPY --from=builder /app/target/release/crud-api-example .
 
-CMD ["./rust-crud-api"]
+CMD ["./crud-api-example"]
